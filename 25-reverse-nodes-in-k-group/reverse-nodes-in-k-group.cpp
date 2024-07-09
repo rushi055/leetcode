@@ -9,7 +9,12 @@
  * };
  */
 
-
+const auto init = [](){
+       std::cin.tie(nullptr);
+       std::cout.tie(nullptr);
+       std::ios_base::sync_with_stdio(false);
+       return nullptr;
+}();
  //T.C : O(2N)
  //S.C : O(1)
 class Solution {
