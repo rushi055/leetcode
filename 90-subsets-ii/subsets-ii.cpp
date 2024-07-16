@@ -68,53 +68,52 @@ private:
 
 
 // DRY RUn
-// an example array `nums = [1, 2, 2]`.
+// Example array nums = [1, 2, 2].
 
 // ### Initial Setup:
-// - **Input:** `nums = [1, 2, 2]`
-// - **Sorting:** `nums` is sorted to `[1, 2, 2]`.
+// - Input: nums = [1, 2, 2]
+// - Sorting: nums is sorted to [1, 2, 2]
 
-// ### Backtracking Function (`backtrack`):
+// ### Backtracking Function (backtrack):
 
-// 1. **Initial Call**: 
-//    - `temp = []` (empty subset initially)
-//    - `result = []` (empty result initially)
-//    - `start = 0`
+// 1. Initial Call:
+//    - temp = [] (empty subset initially)
+//    - result = [] (empty result initially)
+//    - start = 0
 
-// 2. **Iteration for `start = 0`:**
+// 2. Iteration for start = 0:
 
-//    - **i = 0:** (`nums[0] = 1`)
-//      - Add `[1]` to `temp`.
-//      - **Recursive Call (`backtrack(nums, 1, [1], result)`):**
-//        - Add `[1]` to `result`.
+//    - i = 0: (nums[0] = 1)
+//      - Add [1] to temp.
+//      - Recursive Call (backtrack(nums, 1, [1], result)):
+//        - Add [1] to result.
 
-//      - **i = 1:** (`nums[1] = 2`)
-//        - Add `[1, 2]` to `temp`.
-//        - **Recursive Call (`backtrack(nums, 2, [1, 2], result)`):**
-//          - Add `[1, 2]` to `result`.
+//      - i = 1: (nums[1] = 2)
+//        - Add [1, 2] to temp.
+//        - Recursive Call (backtrack(nums, 2, [1, 2], result)):
+//          - Add [1, 2] to result.
 
-//        - **i = 2:** (`nums[2] = 2`)
-//          - Skip duplicate `[1, 2, 2]` (since `nums[i] == nums[i - 1]` and `i > start`).
+//        - i = 2: (nums[2] = 2)
+//          - Skip duplicate [1, 2, 2] (since nums[i] == nums[i - 1] and i > start).
 
-//        - Backtrack: Remove `2` from `temp`, backtrack to previous state `[1]`.
+//          - Backtrack: Remove 2 from temp, backtrack to previous state [1].
 
-//    - **i = 2:** (`nums[2] = 2`)
-//      - Skip duplicate `[1, 2, 2]` (since `nums[i] == nums[i - 1]` and `i > start`).
+//    - i = 2: (nums[2] = 2)
+//      - Skip duplicate [1, 2, 2] (since nums[i] == nums[i - 1] and i > start).
 
-//      - Backtrack to previous state `[]`.
+//      - Backtrack to previous state [].
 
-// 3. **Iteration for `start = 1`:**
+// 3. Iteration for start = 1:
 
-//    - **i = 1:** (`nums[1] = 2`)
-//      - Skip duplicate `[2]` (since `nums[i] == nums[i - 1]` and `i > start`).
+//    - i = 1: (nums[1] = 2)
+//      - Skip duplicate [2] (since nums[i] == nums[i - 1] and i > start).
 
-//      - Backtrack to previous state `[]`.
+//      - Backtrack to previous state [].
 
-//    - **i = 2:** (`nums[2] = 2`)
-//      - Skip duplicate `[2, 2]` (since `nums[i] == nums[i - 1]` and `i > start`).
+//    - i = 2: (nums[2] = 2)
+//      - Skip duplicate [2, 2] (since nums[i] == nums[i - 1] and i > start).
 
-//      - Backtrack to previous state `[]`.
+//      - Backtrack to previous state [].
 
 // ### Final Result:
-// - `result = [[], [1], [1, 2], [2]]`
-
+// - result = [[], [1], [1, 2], [2]]
