@@ -8,6 +8,12 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+const auto init = []() {
+    std::cin.tie(nullptr);
+    std::cout.tie(nullptr);
+    std::ios_base::sync_with_stdio(false);
+    return nullptr;
+}();
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
@@ -17,8 +23,8 @@ public:
         ListNode* temp = head->next;
         head->next = swapPairs(head->next->next);
         temp->next = head;
-        
-        //A->B->C->D
-        return temp;//As New Head is B after swap
+
+        // A->B->C->D
+        return temp; // As New Head is B after swap
     }
 };
