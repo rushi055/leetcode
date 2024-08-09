@@ -1,3 +1,9 @@
+const auto init = [](){
+       std::cin.tie(nullptr);
+       std::cout.tie(nullptr);
+       std::ios_base::sync_with_stdio(false);
+       return nullptr;
+}();
 class Solution {
 public:
 // Perform same approach as we use in 560. Subarray Sum Equals K
