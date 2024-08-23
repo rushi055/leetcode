@@ -32,7 +32,7 @@ public:
             numo = numo * den + num * deno;
             deno = deno * den;
 
-            long long gcdd = gcd(abs(numo), deno);
+            long long gcdd = gcd(numo, deno);
             numo /= gcdd;
             deno /= gcdd;
         }
