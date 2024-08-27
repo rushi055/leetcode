@@ -12,17 +12,14 @@
  */
 class Solution {
 public:
-    int ans = INT_MIN;
-    int solve(TreeNode* root, int count) {
+    int solve(TreeNode* root) {
         if (!root) {
-            return count;
+            return 0;
         }
-        if (!root->left && !root->right) {
-            ans = max(ans, count);
-        }
-        int l = solve(root->left, count + 1);
-        int r = solve(root->right, count + 1);
-        return max(l, r);
+
+        int l = solve(root->left);
+        int r = solve(root->right);
+        return 1 + max(l, r);
     }
-    int maxDepth(TreeNode* root) { return solve(root, 0); }
+    int maxDepth(TreeNode* root) { return solve(root); }
 };
