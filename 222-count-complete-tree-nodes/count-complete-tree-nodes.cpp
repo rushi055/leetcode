@@ -15,16 +15,13 @@ public:
     int k = 0;
     int solve(TreeNode* root, int& k) {
         if (!root) {
-            return k;
+            return 0;
         }
-        k++;
-        solve(root->left,k);
-        solve(root->right,k);
+        // k++;
+        // solve(root->left,k);
+        // solve(root->right,k);
 
-        return k;
+        return 1 + solve(root->left, k) + solve(root->right, k);
     }
-    int countNodes(TreeNode* root) {
-        
-        return solve(root, k);
-    }
+    int countNodes(TreeNode* root) { return solve(root, k); }
 };
