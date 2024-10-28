@@ -1,28 +1,28 @@
+#include <vector>
+#include <algorithm>
+#include <unordered_set>
+using namespace std;
+
 class Solution {
 public:
     int longestSquareStreak(vector<int>& nums) {
-        int n = nums.size();
-        set<int> st;
+        int maxNum = 1e5;
+        vector<int> dp(maxNum + 1, 0);
+        unordered_set<int> numSet(nums.begin(), nums.end());
+        int ans = -1;
 
-        for (int i = 0; i < n; i++) {
-            st.insert(nums[i]);
-        }
-        int ans = INT_MIN;
+        sort(nums.begin(), nums.end());
 
-        for (int j = 0; j < n; j++) {
-            long long nxt = (long long)nums[j] * (long long)nums[j];
-            int i = 1;
-            while (st.find(nxt) != st.end()) {
-                if (nxt > pow(10, 5)) {
-                    break;
-                }
-                nxt = nxt * nxt;
-                i++;
-            }
-            if (i >= 2) {
-                ans = max(ans, i);
+        for (int num : nums) {
+            dp[num] = max(dp[num], 1);
+            long long square = (long long)num * num;
+
+            if (square <= maxNum && numSet.count(square)) {
+                dp[square] = max(dp[square], dp[num] + 1);
+                ans = max(ans, dp[square]);
             }
         }
-        return ans != INT_MIN ? ans : -1;
+
+        return ans > 1 ? ans : -1;
     }
 };
