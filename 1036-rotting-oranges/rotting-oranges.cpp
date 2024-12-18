@@ -11,7 +11,7 @@ public:
             for (int j = 0; j < m; j++) {
                 if (grid[i][j] == 2) {
                     q.push({{i, j}, 0});
-                    vis[i][j] = 2;
+                    vis[i][j] = 1;
                 }
             }
         }
@@ -34,7 +34,7 @@ public:
                 if (rd >= 0 && rd < n && cd >= 0 && cd < m &&
                     grid[rd][cd] == 1 && vis[rd][cd] == 0) {
                     q.push({{rd, cd}, t + 1});
-                    vis[rd][cd] = 2;
+                    vis[rd][cd] = 1;
                     grid[rd][cd] = 2;
                 }
             }
